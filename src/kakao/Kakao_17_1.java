@@ -1,3 +1,5 @@
+package kakao;
+
 public class Kakao_17_1 {
 
     public static void main(String[] args) {

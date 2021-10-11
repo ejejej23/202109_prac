@@ -12,7 +12,7 @@ public class prg_1011_1 {
     }
 
     public static boolean solution(String[] phone_book){
-        boolean answer = false;
+        boolean answer = true;
         int length = phone_book.length;
         Arrays.sort(phone_book, Comparator.comparing(String::length));
 

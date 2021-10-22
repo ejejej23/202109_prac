@@ -6,12 +6,12 @@ public class prg_1022_1 {
     //프로그래머스 스택/큐 기능개발 문제
     public static void main(String[] args) {
         int[] answer={};
-//        int[] progresses = {93, 30, 55};
-//        int[] progresses = {95, 90, 99, 99, 80, 99};
         int[] progresses = {96,94};
-//        int[] speeds = {1, 30, 5};
-//        int[] speeds = {1, 1, 1, 1, 1, 1};
         int[] speeds = {3,3};
+//      progresses = {93, 30, 55};
+//      progresses = {95, 90, 99, 99, 80, 99};
+//      speeds = {1, 30, 5};
+//      speeds = {1, 1, 1, 1, 1, 1};
 
         answer = solution(progresses, speeds);
 

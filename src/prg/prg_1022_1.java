@@ -14,7 +14,6 @@ public class prg_1022_1 {
 //      speeds = {1, 1, 1, 1, 1, 1};
 
         answer = solution(progresses, speeds);
-
         System.out.println(Arrays.toString(answer));
     }
 

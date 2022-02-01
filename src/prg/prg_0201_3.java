@@ -18,25 +18,24 @@ public class prg_0201_3 {
 		PriorityQueue<Integer> min = new PriorityQueue<>();
 		PriorityQueue<Integer> max = new PriorityQueue<>(Comparator.reverseOrder());
 
-		for(int i=0; i<operations.length;i++){
-			String[] str = operations[i].split(" ");
+		for (String operation : operations) {
+			String[] str = operation.split(" ");
 
-			switch (str[0]){
-				case "I":
+			switch (str[0]) {
+				case "I" -> {
 					min.offer(Integer.parseInt(str[1]));
 					max.offer(Integer.parseInt(str[1]));
-					break;
-				case "D":
-					if(max.isEmpty()) continue;
-
-					if(str[1].equals("1")){
+				}
+				case "D" -> {
+					if (max.isEmpty() || min.isEmpty()) continue;
+					if (str[1].equals("1")) {
 						int t = max.poll();
 						min.remove(t);
-					}else{
+					} else {
 						int t = min.poll();
 						max.remove(t);
 					}
-					break;
+				}
 			}
 		}
 

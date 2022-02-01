@@ -2,6 +2,7 @@ package prg;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
 public class prg_0201_1 {
@@ -13,6 +14,7 @@ public class prg_0201_1 {
 	static class Solution {
 		public static int solution(int[] scoville, int K) {
 			int answer = 0;
+			/*
 
 			boolean isOverK = Arrays.stream(scoville).allMatch(a -> (int) a >= K);
 			if(isOverK) return 0;
@@ -34,6 +36,24 @@ public class prg_0201_1 {
 				arr1 = arr2.stream().sorted().limit(2).collect(Collectors.toList());
 				arr2 = arr2.stream().sorted().skip(2).collect(Collectors.toList());
 			}
+			return answer;*/
+
+			PriorityQueue<Integer> heap = new PriorityQueue<>();
+			for(int i :scoville){
+				heap.add(i);
+			}
+
+			while (heap.peek() <K){
+				if(heap.size()<2) return -1;
+				int h1 = heap.poll();
+				int h2 = heap.poll();
+				System.out.println(h1 +"   "+h2);
+
+				int newNum = h1 +(h2*2);
+				heap.offer(newNum);
+				answer++;
+			}
+
 			return answer;
 		}
 	}

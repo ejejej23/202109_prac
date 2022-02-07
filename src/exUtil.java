@@ -11,10 +11,12 @@ public class exUtil {
 
 		for(int i=0; i<=num; i++) prime[i] = i;
 
-		for(int i=2; i<num; i++){
+		for(int i=2; i*i<num; i++){
 			if(prime[i] == 0) continue;
 
-			for(int j=2*i;j<=num; j+=i) prime[j] = 0;//어떤 수의 배수는 소수가 아니므로 제외
+			for(int j=i*i;j<=num; j+=i) prime[j] = 0;//어떤 수의 배수는 소수가 아니므로 제외
+			//각 배수를 지우기 때문에 i의 제곱수부터 배수를 지우면 된다.
+			// 그 앞의 수는 지워져있을것
 		}
 
 		for(int i=0; i<prime.length; i++){
@@ -30,10 +32,8 @@ public class exUtil {
 	 * @return
 	 */
 	private boolean isPrime(int n) {
-
 		int i;
-		int sqrt = (int) Math.sqrt(n);
-
+//		int sqrt = (int) Math.sqrt(n);
 		// 2는 유일한 짝수 소수
 		if (n == 2)
 			return true;
@@ -43,7 +43,9 @@ public class exUtil {
 			return false;
 
 		// 제곱근까지만 홀수로 나눠보면 됨
-		for (i = 3; i <= sqrt; i += 2) {
+		//Math.sqrt 사용하지 않아도 곱해보면똑같음
+		for (i = 3; i*i <= n; i += 2) {
+//		for (i = 3; i <= sqrt; i += 2) {
 			if (n % i == 0)
 				return false;
 		}
